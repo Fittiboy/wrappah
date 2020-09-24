@@ -1,15 +1,13 @@
 #!/home/fitti/projects/wrappah/venv/bin/python
 import pyperclip
-from pyautogui import keyDown, keyUp, press
+from pyautogui import hotkey, press
 from time import sleep
 
 
 while True:
     to_wrap = pyperclip.waitForNewPaste()
     pyperclip.copy("What's \"" + to_wrap.strip("\n").strip() + "\"?")
-    keyDown("control")
-    press("v")
-    keyUp("control")
-    sleep(.1)
+    hotkey("ctrl", "v")
+    sleep(.2)
     press("enter")
     print("Copied!")
